@@ -6,14 +6,12 @@ import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
 import java.io.IOException;
 import java.util.Random;
-
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
-
 public class Game extends Canvas implements Runnable {
 	
-
+	private static final long serialVersionUID = 1L;
 	public static final int WIDTH = 360;
 	public static final int HEIGHT = 240;
 	public static final int SCALE = 2;
