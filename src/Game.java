@@ -1,3 +1,4 @@
+import java.awt.BorderLayout;
 import java.awt.Canvas;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -6,6 +7,7 @@ import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
 import java.io.IOException;
 import java.util.Random;
+
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
@@ -73,7 +75,7 @@ public class Game extends Canvas implements Runnable {
 	public void render(){
 		BufferStrategy bs = getBufferStrategy();
 		if(bs == null){
-			createBufferStrategy(3);
+			createBufferStrategy(2);
 			requestFocus();
 			return;
 		}
@@ -95,11 +97,13 @@ public class Game extends Canvas implements Runnable {
 		game.setMinimumSize(GAME_DIM);
 		
 		JFrame frame = new JFrame(NAME);
-		frame.add(game);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setLayout(new BorderLayout());
+		frame.add(game, BorderLayout.CENTER);
 		frame.pack();
 		frame.setVisible(true);
 		frame.setResizable(true);
+        frame.setLocationRelativeTo(null);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		game.start();
 	}
